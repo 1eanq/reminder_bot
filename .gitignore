@@ -1,3 +1,4 @@
 .yaml
 .db
 /database/database.db
+/config/config.yaml
