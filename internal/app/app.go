@@ -3,32 +3,29 @@ package app
 import (
 	"fmt"
 	"github.com/mymmrac/telego"
+	"log/slog"
+
 	th "github.com/mymmrac/telego/telegohandler"
 	tu "github.com/mymmrac/telego/telegoutil"
-	"log/slog"
 )
 
 type Application struct {
 	logger   *slog.Logger
 	APIToken string
-	dbPath   string
 }
 
 func New(
 	log *slog.Logger,
 	APIToken string,
-	dbPath string,
 ) *Application {
-	return &Application{log, APIToken, dbPath}
+	return &Application{log, APIToken}
 }
 
 func Run(app *Application) {
 	log := app.logger
 	APIToken := app.APIToken
-	dbPath := app.dbPath
 
 	log.Info("Application started!")
-	log.Info("Database path", slog.String("databasePath", dbPath))
 	log.Info("API token", slog.String("APIToken", APIToken))
 
 	bot, err := telego.NewBot(APIToken, telego.WithDefaultDebugLogger())

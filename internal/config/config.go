@@ -8,8 +8,8 @@ import (
 )
 
 type Config struct {
-	APIToken string `yaml:"api_token"`
-	dbPath   string `yaml:"db_path" env-required:"true"`
+	APIToken string `yaml:"api_token" env-required:"true"`
+	DBPath   string `yaml:"db_path" env-required:"true"`
 }
 
 func NewConfig() *Config {
